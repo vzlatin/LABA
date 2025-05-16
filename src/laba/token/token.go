@@ -21,8 +21,9 @@ const (
 	RBRACE    = "}"
 
 	// Keywords
-	FUNCTION = "FUNCTION"
-	LET      = "LET"
+	COMBINATIE = "COMBINATIE"
+	SCOATE     = "SCOATE"
+	BAGA       = "BAGA"
 )
 
 type TokenType string
