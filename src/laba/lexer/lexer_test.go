@@ -7,20 +7,54 @@ import (
 )
 
 func TestNextToken(t *testing.T) {
-	input := "=+(){},;"
+	input := `baga cinci = 5;
+	baga zece = 10;
+
+	baga add = combinatie(x, y) {
+		scoate x + y;
+	}
+	baga rezultat = add(cinci, zece);
+	`
 	type testToken struct {
 		exectedType     token.TokenType
 		expectedLiteral string
 	}
 
 	tests := []testToken{
+		{token.BAGA, "baga"},
+		{token.IDENT, "cinci"},
 		{token.ASSIGN, "="},
-		{token.PLUS, "+"},
+		{token.INT, "5"},
+		{token.SEMICOLON, ";"},
+		{token.BAGA, "baga"},
+		{token.IDENT, "zece"},
+		{token.ASSIGN, "="},
+		{token.INT, "10"},
+		{token.SEMICOLON, ";"},
+		{token.BAGA, "baga"},
+		{token.IDENT, "add"},
+		{token.ASSIGN, "="},
+		{token.COMBINATIE, "combinatie"},
 		{token.LPAREN, "("},
+		{token.IDENT, "x"},
+		{token.COMMA, ","},
+		{token.IDENT, "y"},
 		{token.RPAREN, ")"},
 		{token.LBRACE, "{"},
-		{token.RBRACE, "}"},
+		{token.SCOATE, "scoate"},
+		{token.IDENT, "x"},
+		{token.PLUS, "+"},
+		{token.IDENT, "y"},
+		{token.SEMICOLON, ";"},
+		{token.BAGA, "baga"},
+		{token.IDENT, "rezultat"},
+		{token.ASSIGN, "="},
+		{token.IDENT, "add"},
+		{token.LPAREN, "("},
+		{token.IDENT, "cinci"},
 		{token.COMMA, ","},
+		{token.IDENT, "zece"},
+		{token.RPAREN, ")"},
 		{token.SEMICOLON, ";"},
 		{token.EOF, ""},
 	}
