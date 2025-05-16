@@ -21,6 +21,8 @@ func TestNextToken(t *testing.T) {
 	} sau {
 		scoate vrajeala;
 	}
+	10 == 10;
+	10 != 9;
 	`
 	type testToken struct {
 		exectedType     token.TokenType
@@ -93,9 +95,19 @@ func TestNextToken(t *testing.T) {
 		{token.VRAJEALA, "vrajeala"},
 		{token.SEMICOLON, ";"},
 		{token.RBRACE, "}"},
+		{token.INT, "10"},
+		{token.EQ, "=="},
+		{token.INT, "10"},
+		{token.SEMICOLON, ";"},
+		{token.INT, "10"},
+		{token.NOT_EQ, "!="},
+		{token.INT, "9"},
+		{token.SEMICOLON, ";"},
 		{token.EOF, ""},
 	}
 
+	// 	10 == 10;
+	// 	10 != 9;
 	l := New(input)
 
 	for i, tt := range tests {
