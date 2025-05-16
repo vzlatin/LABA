@@ -16,6 +16,11 @@ func TestNextToken(t *testing.T) {
 	baga rezultat = add(cinci, zece);
 	!-/*5;
 	5 < 10 > 5;
+	daca (5 < 10) {
+		scoate pe_bune;
+	} sau {
+		scoate vrajeala;
+	}
 	`
 	type testToken struct {
 		exectedType     token.TokenType
@@ -71,6 +76,23 @@ func TestNextToken(t *testing.T) {
 		{token.GT, ">"},
 		{token.INT, "5"},
 		{token.SEMICOLON, ";"},
+		{token.DACA, "daca"},
+		{token.LPAREN, "("},
+		{token.INT, "5"},
+		{token.LT, "<"},
+		{token.INT, "10"},
+		{token.RPAREN, ")"},
+		{token.LBRACE, "{"},
+		{token.SCOATE, "scoate"},
+		{token.PE_BUNE, "pe_bune"},
+		{token.SEMICOLON, ";"},
+		{token.RBRACE, "}"},
+		{token.SAU, "sau"},
+		{token.LBRACE, "{"},
+		{token.SCOATE, "scoate"},
+		{token.VRAJEALA, "vrajeala"},
+		{token.SEMICOLON, ";"},
+		{token.RBRACE, "}"},
 		{token.EOF, ""},
 	}
 
