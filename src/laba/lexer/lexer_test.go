@@ -10,17 +10,17 @@ func TestNextToken(t *testing.T) {
 	input := `bagă cinci = 5;
 	bagă zece = 10;
 
-	bagă add = combinație(x, y) {
+	bagă add = combinație(x, y) hai
 		scoate x + y;
-	}
+	stai
 	bagă rezultat = add(cinci, zece);
 	!-/*5;
-	5 < 10 > 5;
-	dacă (5 < 10) {
+	5 mai mic 10 mai mare 5;
+	dacă (5 mai mic 10) hai
 		scoate pe bune;
-	} sau {
+	stai sau hai
 		scoate vrajeală;
-	}
+	stai
 	10 == 10;
 	10 != 9;
 	`
@@ -49,13 +49,13 @@ func TestNextToken(t *testing.T) {
 		{token.COMMA, ","},
 		{token.IDENT, "y"},
 		{token.RPAREN, ")"},
-		{token.LBRACE, "{"},
+		{token.LBRACE, "hai"},
 		{token.SCOATE, "scoate"},
 		{token.IDENT, "x"},
 		{token.PLUS, "+"},
 		{token.IDENT, "y"},
 		{token.SEMICOLON, ";"},
-		{token.RBRACE, "}"},
+		{token.RBRACE, "stai"},
 		{token.BAGA, "bagă"},
 		{token.IDENT, "rezultat"},
 		{token.ASSIGN, "="},
@@ -73,28 +73,28 @@ func TestNextToken(t *testing.T) {
 		{token.INT, "5"},
 		{token.SEMICOLON, ";"},
 		{token.INT, "5"},
-		{token.LT, "<"},
+		{token.LT, "mai mic"},
 		{token.INT, "10"},
-		{token.GT, ">"},
+		{token.GT, "mai mare"},
 		{token.INT, "5"},
 		{token.SEMICOLON, ";"},
 		{token.DACA, "dacă"},
 		{token.LPAREN, "("},
 		{token.INT, "5"},
-		{token.LT, "<"},
+		{token.LT, "mai mic"},
 		{token.INT, "10"},
 		{token.RPAREN, ")"},
-		{token.LBRACE, "{"},
+		{token.LBRACE, "hai"},
 		{token.SCOATE, "scoate"},
 		{token.PE_BUNE, "pe bune"},
 		{token.SEMICOLON, ";"},
-		{token.RBRACE, "}"},
+		{token.RBRACE, "stai"},
 		{token.SAU, "sau"},
-		{token.LBRACE, "{"},
+		{token.LBRACE, "hai"},
 		{token.SCOATE, "scoate"},
 		{token.VRAJEALA, "vrajeală"},
 		{token.SEMICOLON, ";"},
-		{token.RBRACE, "}"},
+		{token.RBRACE, "stai"},
 		{token.INT, "10"},
 		{token.EQ, "=="},
 		{token.INT, "10"},

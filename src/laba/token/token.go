@@ -15,8 +15,8 @@ const (
 	BANG     = "!"
 	ASTERISK = "*"
 	SLASH    = "/"
-	LT       = "<"
-	GT       = ">"
+	LT       = "MAI_MIC"
+	GT       = "MAI_MARE"
 	EQ       = "=="
 	NOT_EQ   = "!="
 
@@ -25,8 +25,8 @@ const (
 	SEMICOLON = ";"
 	LPAREN    = "("
 	RPAREN    = ")"
-	LBRACE    = "{"
-	RBRACE    = "}"
+	LBRACE    = "HAI"
+	RBRACE    = "STAI"
 
 	// Keywords
 	COMBINATIE = "COMBINATIE"
@@ -55,11 +55,16 @@ var keywords = map[string]TokenType{
 	"șapoi dacă": SAPOI_DACA,
 	"dacă":       DACA,
 	"sau":        SAU,
+	"hai":        LBRACE,
+	"stai":       RBRACE,
+	"mai mic":    LT,
+	"mai mare":   GT,
 }
 
 var composed = map[string]bool{
 	"pe":    true,
 	"șapoi": true,
+	"mai":   true,
 }
 
 func CanBeComposed(ident string) bool {
