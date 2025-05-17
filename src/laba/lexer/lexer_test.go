@@ -17,7 +17,7 @@ func TestNextToken(t *testing.T) {
 	!-/*5;
 	5 < 10 > 5;
 	dacă (5 < 10) {
-		scoate pe_bune;
+		scoate pe bune;
 	} sau {
 		scoate vrajeală;
 	}
@@ -86,7 +86,7 @@ func TestNextToken(t *testing.T) {
 		{token.RPAREN, ")"},
 		{token.LBRACE, "{"},
 		{token.SCOATE, "scoate"},
-		{token.PE_BUNE, "pe_bune"},
+		{token.PE_BUNE, "pe bune"},
 		{token.SEMICOLON, ";"},
 		{token.RBRACE, "}"},
 		{token.SAU, "sau"},

@@ -57,6 +57,15 @@ var keywords = map[string]TokenType{
 	"sau":        SAU,
 }
 
+var composed = map[string]bool{
+	"pe":    true,
+	"șapoi": true,
+}
+
+func CanBeComposed(ident string) bool {
+	return composed[ident]
+}
+
 func LookupIdent(ident string) TokenType {
 	if tok, ok := keywords[ident]; ok {
 		return tok
