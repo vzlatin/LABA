@@ -29,12 +29,12 @@ const (
 	RBRACE    = "}"
 
 	// Keywords
-	COMBINATIE = "COMBINATIE"
-	BAGA       = "BAGA"
+	COMBINAȚIE = "COMBINAȚIE"
+	BAGĂ       = "BAGĂ"
 	PE_BUNE    = "PE_BUNE"
-	VRAJEALA   = "VRAJEALA"
-	DACA       = "DACA"
-	PA_ORMA    = "PA_ORMA" // elif
+	VRAJEALĂ   = "VRAJEALĂ"
+	DACĂ       = "DACĂ"
+	ȘAPOI      = "ȘAPOI" // elif
 	SAU        = "SAU"
 	SCOATE     = "SCOATE"
 )
@@ -47,13 +47,13 @@ type Token struct {
 }
 
 var keywords = map[string]TokenType{
-	"combinatie": COMBINATIE,
-	"baga":       BAGA,
+	"combinație": COMBINAȚIE,
+	"bagă":       BAGĂ,
 	"scoate":     SCOATE,
 	"pe_bune":    PE_BUNE,
-	"vrajeala":   VRAJEALA,
-	"pa_orma":    PA_ORMA,
-	"daca":       DACA,
+	"vrajeală":   VRAJEALĂ,
+	"șapoi":      ȘAPOI,
+	"dacă":       DACĂ,
 	"sau":        SAU,
 }
 
