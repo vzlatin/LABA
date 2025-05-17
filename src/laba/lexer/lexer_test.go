@@ -17,7 +17,7 @@ func TestNextToken(t *testing.T) {
 	!-/*5;
 	5 < 10 > 5;
 	dacă (5 < 10) {
-		scoate pe_bune;
+		scoate pe bune;
 	} sau {
 		scoate vrajeală;
 	}
@@ -30,20 +30,20 @@ func TestNextToken(t *testing.T) {
 	}
 
 	tests := []testToken{
-		{token.BAGĂ, "bagă"},
+		{token.BAGA, "bagă"},
 		{token.IDENT, "cinci"},
 		{token.ASSIGN, "="},
 		{token.INT, "5"},
 		{token.SEMICOLON, ";"},
-		{token.BAGĂ, "bagă"},
+		{token.BAGA, "bagă"},
 		{token.IDENT, "zece"},
 		{token.ASSIGN, "="},
 		{token.INT, "10"},
 		{token.SEMICOLON, ";"},
-		{token.BAGĂ, "bagă"},
+		{token.BAGA, "bagă"},
 		{token.IDENT, "add"},
 		{token.ASSIGN, "="},
-		{token.COMBINAȚIE, "combinație"},
+		{token.COMBINATIE, "combinație"},
 		{token.LPAREN, "("},
 		{token.IDENT, "x"},
 		{token.COMMA, ","},
@@ -56,7 +56,7 @@ func TestNextToken(t *testing.T) {
 		{token.IDENT, "y"},
 		{token.SEMICOLON, ";"},
 		{token.RBRACE, "}"},
-		{token.BAGĂ, "bagă"},
+		{token.BAGA, "bagă"},
 		{token.IDENT, "rezultat"},
 		{token.ASSIGN, "="},
 		{token.IDENT, "add"},
@@ -78,7 +78,7 @@ func TestNextToken(t *testing.T) {
 		{token.GT, ">"},
 		{token.INT, "5"},
 		{token.SEMICOLON, ";"},
-		{token.DACĂ, "dacă"},
+		{token.DACA, "dacă"},
 		{token.LPAREN, "("},
 		{token.INT, "5"},
 		{token.LT, "<"},
@@ -86,13 +86,13 @@ func TestNextToken(t *testing.T) {
 		{token.RPAREN, ")"},
 		{token.LBRACE, "{"},
 		{token.SCOATE, "scoate"},
-		{token.PE_BUNE, "pe_bune"},
+		{token.PE_BUNE, "pe bune"},
 		{token.SEMICOLON, ";"},
 		{token.RBRACE, "}"},
 		{token.SAU, "sau"},
 		{token.LBRACE, "{"},
 		{token.SCOATE, "scoate"},
-		{token.VRAJEALĂ, "vrajeală"},
+		{token.VRAJEALA, "vrajeală"},
 		{token.SEMICOLON, ";"},
 		{token.RBRACE, "}"},
 		{token.INT, "10"},

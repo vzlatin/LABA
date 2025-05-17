@@ -29,12 +29,12 @@ const (
 	RBRACE    = "}"
 
 	// Keywords
-	COMBINAȚIE = "COMBINAȚIE"
-	BAGĂ       = "BAGĂ"
+	COMBINATIE = "COMBINATIE"
+	BAGA       = "BAGA"
 	PE_BUNE    = "PE_BUNE"
-	VRAJEALĂ   = "VRAJEALĂ"
-	DACĂ       = "DACĂ"
-	ȘAPOI      = "ȘAPOI" // elif
+	VRAJEALA   = "VRAJEALA"
+	DACA       = "DACA"
+	SAPOI_DACA = "SAPOI_DACA" // elif
 	SAU        = "SAU"
 	SCOATE     = "SCOATE"
 )
@@ -47,14 +47,23 @@ type Token struct {
 }
 
 var keywords = map[string]TokenType{
-	"combinație": COMBINAȚIE,
-	"bagă":       BAGĂ,
+	"combinație": COMBINATIE,
+	"bagă":       BAGA,
 	"scoate":     SCOATE,
-	"pe_bune":    PE_BUNE,
-	"vrajeală":   VRAJEALĂ,
-	"șapoi":      ȘAPOI,
-	"dacă":       DACĂ,
+	"pe bune":    PE_BUNE,
+	"vrajeală":   VRAJEALA,
+	"șapoi dacă": SAPOI_DACA,
+	"dacă":       DACA,
 	"sau":        SAU,
+}
+
+var composed = map[string]bool{
+	"pe":    true,
+	"șapoi": true,
+}
+
+func CanBeComposed(ident string) bool {
+	return composed[ident]
 }
 
 func LookupIdent(ident string) TokenType {

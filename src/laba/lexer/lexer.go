@@ -83,9 +83,25 @@ func (l *Lexer) NextToken() token.Token {
 		tok.Type = token.EOF
 	default:
 		if isLetter(l.ch) {
-			tok.Literal = l.readIdentifier()
-			tok.Type = token.LookupIdent(tok.Literal)
-			return tok
+			ident := l.readIdentifier()
+			tokType := token.LookupIdent(ident)
+
+			if token.CanBeComposed(ident) {
+				savePos, saveReadPos, saveCh := l.position, l.readPosition, l.ch
+				l.skipWhitespace()
+				nextWord := l.readIdentifier()
+				combined := ident + " " + nextWord
+
+				if token.LookupIdent(combined) != token.IDENT {
+					ident = combined
+					tokType = token.LookupIdent(combined)
+				} else {
+					l.position = savePos
+					l.readPosition = saveReadPos
+					l.ch = saveCh
+				}
+			}
+			return token.Token{Type: tokType, Literal: ident}
 		} else if isDigit(l.ch) {
 			tok.Literal = l.readNumber()
 			tok.Type = token.INT
